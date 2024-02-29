@@ -1,1 +1,23 @@
 This folder includes mango leaf disease classification using CNN.
+Step 1. Model building. (CNN-Mango Leaf Disease Classification.ipynb)
+Step 2. make sure installing everything in the requirements.txt.
+Step 3. Create main.py and run it.
+Step 4. Go to browser 'localhost:8000/docs'
+Step 5. click 'post' and click 'try it out' and upload an image. It will give prediction and confidence.
+
+NEXT LETS TRY WITH TFSERVING(FOR VERSION MANAGEMENT):
+
+Step 6. create models.config file, which is needed for tf-serving.
+  - tf-serving is mainly used when we have different versions of the model for doing kind of AB-testing.
+Step 7. Install docker desktop on windows. Refer 'https://www.tensorflow.org/tfx/serving/docker'
+    Inside your project directory, open git bash.
+   run 'docker pull tensorflow/serving' to get tfServing with Docker.
+Step 6. Run tf-serving in windows power shell to load the container.
+      'docker run -t --rm -p 8502:8502 -v D:/SUGANYA/github/DeepLearning/CNN/Mango_Leaf_Disease_Classification:/Mango_Leaf_Disease_Classification tensorflow/serving
+                                                            --rest_api_port=8502 --model_config_file=/Mango_Leaf_Disease_Classification/models.config'
+Step 7. Run main-tf-serving.
+Step 8. Go to browser 'localhost:8000/docs'
+Step 9. click 'post' and click 'try it out' and upload an image. It will give prediction and confidence.
+
+
+  
