@@ -1,0 +1,47 @@
+When we perform AB testing, we would have a config file something like this:
+//models.config.a
+model_config_list
+{
+  config
+  {
+    name:'mango_model'
+    base_path:'/Mango_Leaf_Disease_Classification/saved_models'
+    model_platform: 'tensorflow'
+    model_version_policy
+    {
+      specific
+      {
+        versions:1
+        versions:2
+      } 
+    } 
+    version_labels
+    {
+      key:'prod'
+      value:1
+    }  
+    version_labels
+    {
+      key:'beta'
+      value:2
+    }  
+  } 
+}
+
+AND,
+run the following in windows powershell:
+docker run -t --rm -p 8502:8502 -v D:/DeepLearning/CNN/Mango_Leaf_Disease_Classification:/Mango_Leaf_Disease_Classification tensorflow/serving 
+--rest_api_port=8502 --model_config_file=/Mango_Leaf_Disease_Classification/models.config.a --allow_version_labels_for_unavailabel_models
+
+AND, in the client code(written in java script), we should have the lines like the following:
+
+production_url = http://localhost:8502/v1/models/mango_model/labels/prod:predict
+beta_url = http://localhost:8502/v1/models/mango_model/labels/beta:predict
+
+function make_prediction(){
+  if(beta_user)
+  {
+    //beta_url
+  }  
+  }
+
