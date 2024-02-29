@@ -12,12 +12,11 @@ Step 6. create models.config file, which is needed for tf-serving.
 Step 7. Install docker desktop on windows. Refer 'https://www.tensorflow.org/tfx/serving/docker'
     Inside your project directory, open git bash.
    run 'docker pull tensorflow/serving' to get tfServing with Docker.
-Step 6. Run tf-serving in windows power shell to load the container.
+Step 8. Run tf-serving in windows power shell to load the container.
       'docker run -t --rm -p 8502:8502 -v D:/SUGANYA/github/DeepLearning/CNN/Mango_Leaf_Disease_Classification:/Mango_Leaf_Disease_Classification tensorflow/serving
                                                             --rest_api_port=8502 --model_config_file=/Mango_Leaf_Disease_Classification/models.config'
-Step 7. Run main-tf-serving.
-Step 8. Go to browser 'localhost:8000/docs'
-Step 9. click 'post' and click 'try it out' and upload an image. It will give prediction and confidence.
+Step 9. Run main-tf-serving. Go to browser 'localhost:8000/docs'
+Step 10. click 'post' and click 'try it out' and upload an image. It will give prediction and confidence.
 
 
   
